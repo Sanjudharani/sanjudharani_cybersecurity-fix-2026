@@ -1,5 +1,10 @@
 from app.db import get_connection, reset_db
+from passlib.context import CryptContext
 
+pwd_context = CryptContext(
+    schemes=["bcrypt"],
+    deprecated="auto"
+)
 
 def seed() -> None:
     reset_db()
